@@ -1,4 +1,21 @@
+# Python virtual environment
+.venv/
+
+# Python cache
+__pycache__/
 *.pyc
+
+# macOS
+.DS_Store
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Generated HTML
+*.html
+
 build
 .idea
 landslide/.idea
@@ -7,7 +24,6 @@ presentation.html
 examples/.DS_Store
 *.swp
 landslide.egg-info
-dist/
 *.komodoproject
 .komodotools
 landslide.sublime-project
