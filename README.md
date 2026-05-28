@@ -101,8 +101,8 @@ If you want to stay on the edge:
 ## Cover Slide
 
 The **first slide** of every Markdown presentation is automatically given the
-`cover` CSS class and rendered with a distinct layout — a centered, dark-blue
-gradient background suited for academic or professional title pages.
+`cover` CSS class and rendered with a distinct layout — a centered, light
+blue-white gradient background suited for academic or professional title pages.
 
 Recommended structure for the cover slide:
 

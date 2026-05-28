@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.1.1
+
+- Redesign cover slide: replace the dark-navy gradient with a calm, light
+  blue-white gradient (`#f0f4fb` → `#e4edf8` → `#d8e6f4`) and switch all text
+  to deep-blue tones for comfortable readability under projection
+- Remove the decorative separator line (`header::after`) below the cover title
+  that appeared as a floating hyphen; spacing is now handled by margin alone
+
 ## v2.1.0
 
 - Add dedicated cover slide: the first slide automatically receives a `cover`
