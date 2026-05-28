@@ -1,5 +1,14 @@
 # Changelog
 
+## v2.1.0
+
+- Add dedicated cover slide: the first slide automatically receives a `cover`
+  CSS class with a centered, full-bleed dark-blue layout suited to academic
+  title pages (course title, instructor name, affiliation, semester)
+- Fix inconsistent list rendering: Markdown lists no longer require manually
+  inserted blank lines between lists and surrounding paragraphs; the parser
+  now inserts those blank lines automatically during preprocessing
+
 ## v2.0.0
 
 - Drop Python 2 support

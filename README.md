@@ -76,12 +76,15 @@ If you want to stay on the edge:
 
 - Your Markdown source files must be suffixed by `.md`, `.markdn`, `.mdwn`,
   `.mdown` or `.markdown`
-- To create a title slide, render a single `h1` element (eg. `# My Title`)
+- The **first slide** is automatically styled as a cover page (see
+  [Cover Slide](#cover-slide) below)
 - Separate your slides with a horizontal rule (`---` in markdown) except at the
   end of md files
 - Your other slides should have a heading that renders to an `h1` element
 - To highlight blocks of code, put `!lang` where `lang` is the pygment
   supported language identifier as the first indented line
+- Blank lines between lists and surrounding paragraphs are inserted
+  automatically; you do not need to add them manually in your source files
 
 ### ReStructuredText
 
@@ -94,6 +97,36 @@ If you want to stay on the edge:
 ### Textile
 
 - Separate your slides using `---`, just like in markdown
+
+## Cover Slide
+
+The **first slide** of every Markdown presentation is automatically given the
+`cover` CSS class and rendered with a distinct layout — a centered, dark-blue
+gradient background suited for academic or professional title pages.
+
+Recommended structure for the cover slide:
+
+    # Course or Talk Title
+    ## Optional Subtitle
+
+    ---
+
+    ## Instructor / Speaker Name
+    ### Department · Institution
+    *Semester · Year*
+
+Landslide splits on `---`, so the cover content is everything before the first
+separator. Use `h1` for the main title, `h2` for a subtitle or the speaker
+name, `h3` for the institution or department, and plain text or `*italic*` for
+date and semester information.
+
+The cover layout is defined in `css/screen.css` under the `.slide.cover` rules.
+To override the look, supply a user stylesheet via the `css` key in your `.cfg`
+configuration file:
+
+    [landslide]
+    source = slides.md
+    css    = my_cover_overrides.css
 
 ## Rendering
 

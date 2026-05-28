@@ -389,6 +389,135 @@ li pre { margin-left: 0em; }
   margin-bottom:100px;
 }
 
+/* ================================================================
+   Cover Slide
+   Auto-applied to the first slide (class "cover").
+   Intended for: course title, instructor name, affiliation, semester.
+
+   Recommended Markdown structure:
+     # Course Title
+     ## Subtitle (optional)
+     ---
+     ## Instructor Name
+     ### Department / University
+     *Semester · Year*
+   ================================================================ */
+
+.slide.cover {
+  background: -webkit-linear-gradient(210deg, #0f2952 0%, #1a4480 55%, #0f2952 100%);
+  background:         linear-gradient(210deg, #0f2952 0%, #1a4480 55%, #0f2952 100%);
+}
+
+.slide.cover .inner {
+  display: -webkit-flex;
+  display:         flex;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  height: 100%;
+  padding: 50px 70px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-align: center;
+}
+
+/* Override the absolute-positioned normal header for cover slides */
+.slide.cover header,
+.slide.cover header:not(:only-child) {
+  position: static;
+  left: auto;
+  top: auto;
+  margin: 0 0 28px 0;
+  padding: 0;
+  text-align: center;
+  font-size: 54px;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.slide.cover header::after {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 2px;
+  margin: 22px auto 0;
+}
+
+.slide.cover header h1,
+.slide.cover header h2,
+.slide.cover header h3,
+.slide.cover header h4,
+.slide.cover header h5,
+.slide.cover header h6 {
+  display: block;
+  font-size: 100%;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+}
+
+/* Override title-only centering for cover slides */
+.slide.cover header:only-child {
+  height: auto;
+  width: auto;
+  font-size: 58px;
+}
+
+.slide.cover header:only-child h1 {
+  height: auto;
+  width: auto;
+  display: block;
+  margin: 0;
+  font-size: 100%;
+  line-height: 1.25;
+  text-align: center;
+  vertical-align: baseline;
+  color: #ffffff;
+}
+
+/* Section: instructor, affiliation, semester info */
+.slide.cover section {
+  margin: 0;
+  text-align: center;
+  overflow: visible;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.slide.cover section h2 {
+  font-size: 26px;
+  font-weight: normal;
+  color: #c8d8f8;
+  margin: 0 0 12px 0;
+  padding: 0;
+}
+
+.slide.cover section h3 {
+  font-size: 20px;
+  font-weight: normal;
+  color: rgba(190, 215, 255, 0.85);
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+.slide.cover section p {
+  font-size: 17px;
+  color: rgba(190, 210, 245, 0.8);
+  margin: 6px 0;
+}
+
+.slide.cover section em,
+.slide.cover section strong {
+  color: rgba(220, 235, 255, 0.9);
+  font-style: normal;
+}
+
 .sidebar {
   clear: both;
   background: -webkit-gradient(linear, top right, bottom right, from(#dde), to(#fff));

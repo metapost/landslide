@@ -46,6 +46,25 @@ class Parser(object):
             exts = (value.strip() for value in md_extensions.split(','))
             self.md_extensions = filter(None, exts)
 
+    def _fix_list_spacing(self, text):
+        """Insert blank lines before list markers that immediately follow non-list,
+        non-blank content. Python's markdown library requires blank lines between
+        paragraphs and lists; this preprocessing makes that unnecessary in source."""
+        list_marker = re.compile(r'^[ \t]{0,3}(?:[-*+]|\d+\.)[ \t]')
+        lines = text.split('\n')
+        result = []
+        in_fence = False
+        for line in lines:
+            stripped = line.strip()
+            if stripped.startswith('```') or stripped.startswith('~~~'):
+                in_fence = not in_fence
+            if not in_fence and result and list_marker.match(line):
+                prev = result[-1]
+                if prev.strip() and not list_marker.match(prev):
+                    result.append('')
+            result.append(line)
+        return '\n'.join(result)
+
     def parse(self, text):
         """Parses and renders a text as HTML regarding current format.
         """
@@ -58,6 +77,7 @@ class Parser(object):
             if text.startswith(u'\ufeff'):  # check for unicode BOM
                 text = text[1:]
 
+            text = self._fix_list_spacing(text)
             return markdown.markdown(text, extensions=self.md_extensions)
         elif self.format == 'restructuredtext':
             try:

@@ -405,6 +405,10 @@ class Generator(object):
                 continue
             self.num_slides += 1
             slide_number = slide_vars['number'] = self.num_slides
+            if self.num_slides == 1:
+                classes = slide_vars.get('classes') or []
+                if 'cover' not in classes:
+                    slide_vars['classes'] = ['cover'] + classes
             if slide_vars['level'] and slide_vars['level'] <= TOC_MAX_LEVEL:
                 self.add_toc_entry(slide_vars['title'], slide_vars['level'],
                                    slide_number)
