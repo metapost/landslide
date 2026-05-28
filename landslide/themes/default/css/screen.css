@@ -42,7 +42,8 @@ div.slide {
   position: absolute;
   overflow: hidden;
   width: 900px;
-  height: 700px;
+  min-height: 700px; /* added by haipeng to support long page, like the lone gantt page.*/
+  height: auto; /* added by haipeng to support long page, like the lone gantt page.*/
   margin-top: -350px;
   margin-left: -400px;
   left: 50%;
@@ -296,6 +297,22 @@ header h1, header h2, header h3, header h4, header h5, header h6 {
 
 header h2:first-child {
   margin-top: 0;
+}
+
+header h2 {  /* added by haipeng to support long title.*/
+  display: inline;
+  font-size: 80%;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+}
+
+header h3 {  /* added by haipeng to support long title.*/
+  display: inline;
+  font-size: 70%;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
 }
 
 section, .slide header:only-child h1 {
@@ -694,4 +711,15 @@ aside {
 
 .image-reference {
   display: inline;
+}
+
+/* Issue fix: Tables — show inner cell separator lines. Haipeng */
+section table th,
+section table td {
+  padding: 5px 12px;
+  text-align: left;
+}
+
+section table tbody tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.03);
 }
